@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_tags %}
+
+{% block head_title %}{% trans "Create Post" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "Create a New Post" %}</h1>
+    <form method="POST" action="{{ action_url }}">
+        {% csrf_token %}
+        <input type="hidden" name="form_type" value="post_form">
+        {% crispy form %}
+
+    </form>
+{% endblock %}

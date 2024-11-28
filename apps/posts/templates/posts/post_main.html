@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_tags %}
+
+{% block head_title %}{% trans "Blog Posts" %}{% endblock %}
+
+{% block content %}
+    <div class="swiper-container mb-4 mt-4">
+        <div class="swiper-wrapper">
+            {% for user in users %}
+                <div class="swiper-slide">
+                    {% include './includes/user_profile_small.html' with user=user %}
+                </div>
+            {% empty %}
+                {% trans "No users to follow" %}
+            {% endfor %}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
+
+
+
+    <div class="mb-4">
+        <h2>{% trans "Create New Post" %}</h2>
+        {% url 'post_main' as action_url %}
+        <form method="POST" action="{{ action_url }}">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="post_form">
+            {% crispy post_form %}
+
+        </form>
+    </div>
+
+    <h1>{% trans "Blog Posts" %}</h1>
+    <div class="list-group">
+        {% for post in posts %}
+            {% include './includes/post_small_detail.html' with post=post  %}
+        {% empty %}
+            <p>{% trans "No posts available." %}</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        const translations = {
+            follow: "{% trans 'Follow' %}",
+            unfollow: "{% trans 'Unfollow' %}",
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    // Adjust views for larger screens
+                    640: { slidesPerView: 1, spaceBetween: 20 },
+                    768: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 40 },
+                },
+            });
+
+            document.querySelectorAll(".follow-btn").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const followUrl = button.getAttribute("data-follow-url");
+
+                    fetch(followUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]").value,
+                        },
+                    })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.status === "success") {
+                            if (data.operation_type == "followed") {
+                                button.innerHTML = `
+                                    <i class="bi bi-person-dash-fill"></i> ${translations.unfollow}
+                                `;
+                                button.classList.remove("btn-primary");
+                                button.classList.add("btn-danger");
+                                button.setAttribute("data-follow-url", data.unfollow_url);
+                            } else if (data.operation_type == "unfollowed") {
+                                button.innerHTML = `
+                                    <i class="bi bi-person-plus"></i> ${translations.follow}
+                                `;
+                                button.classList.remove("btn-danger");
+                                button.classList.add("btn-primary");
+                                button.setAttribute("data-follow-url", data.follow_url);
+                            }
+                        } else {
+                            alert(data.message);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

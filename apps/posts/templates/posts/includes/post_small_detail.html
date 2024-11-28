@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <div class="post-info">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <p class="mb-1 text-muted">{{ post.created_at|date:"F j, Y" }}</p>
+    </div>
+
+        <div class="float-right">
+            <a href="{% url 'post_detail' post.slug %}" class="btn btn-success btn-sm" title="{% trans 'Post Details' %}">
+                <i class="bi bi-eye"></i> {% trans "Details" %}
+            </a>
+
+            {% if post.created_by == user %}
+            <a href="{% url 'post_update' post.slug %}" class="btn btn-primary btn-sm" title="{% trans 'Update Post' %}">
+                <i class="bi bi-pencil-square"></i> {% trans "Update" %}
+            </a>
+            <a href="{% url 'post_delete' post.slug %}" class="btn btn-danger btn-sm" title="{% trans 'Delete Post' %}">
+                <i class="bi bi-trash"></i> {% trans "Delete" %}
+            </a>
+            {% endif %}
+        </div>
+</div>
