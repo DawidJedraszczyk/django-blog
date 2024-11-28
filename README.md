@@ -8,6 +8,13 @@ EMAIL_HOST_USER = 'duduslol2016@gmail.com'
 EMAIL_HOST_PASSWORD = 'ftro gtmu jppt lcao'
 ```
 
+## Running application
+````
+python manage.py migrate
+python manage.py populate_data
+````
+It will prepare database and printout the credentials for custom user.
+
 # Blog 
 Thats an app, where You can add any content that You want.
 There is also option to follow other users.
