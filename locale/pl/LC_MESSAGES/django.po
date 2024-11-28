@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 23:27+0100\n"
+"POT-Creation-Date: 2024-11-29 00:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
 "n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: apps/posts/forms.py:17 apps/posts/templates/posts/post_main.html:25
+#: apps/posts/forms.py:17 apps/posts/templates/posts/post_main.html:29
 msgid "Create New Post"
 msgstr "Opublikuj"
 
@@ -63,12 +63,10 @@ msgid "Delete"
 msgstr "Usuń"
 
 #: apps/posts/templates/posts/includes/user_profile_small.html:7
-#| msgid "Profile"
 msgid "Profile Picture"
 msgstr "Zdjęcie profilowe"
 
 #: apps/posts/templates/posts/includes/user_profile_small.html:25
-#| msgid "Posts by"
 msgid "Posts"
 msgstr "Posty"
 
@@ -83,7 +81,7 @@ msgid "Following"
 msgstr "Obserwuje"
 
 #: apps/posts/templates/posts/includes/user_profile_small.html:44
-#: apps/posts/templates/posts/post_main.html:46
+#: apps/posts/templates/posts/post_main.html:93
 #: apps/users/templates/users/user_detail.html:71
 #: apps/users/templates/users/user_detail.html:151
 msgid "Follow"
@@ -129,26 +127,35 @@ msgid "Create a New Post"
 msgstr "Stwórz nowy post"
 
 #: apps/posts/templates/posts/post_main.html:4
-#: apps/posts/templates/posts/post_main.html:35
+#: apps/posts/templates/posts/post_main.html:41
 msgid "Blog Posts"
 msgstr "Posty"
 
-#: apps/posts/templates/posts/post_main.html:14
+#: apps/posts/templates/posts/post_main.html:19
 msgid "No users to follow"
 msgstr "Brak użytkowników do śledzenia"
 
-#: apps/posts/templates/posts/post_main.html:40
+#: apps/posts/templates/posts/post_main.html:47
 msgid "No posts available."
 msgstr "Brak postów"
 
-#: apps/posts/templates/posts/post_main.html:47
+#: apps/posts/templates/posts/post_main.html:55
+#: apps/users/templates/users/user_detail.html:107
+msgid "Previous"
+msgstr "Poprzednia"
+
+#: apps/posts/templates/posts/post_main.html:79
+#: apps/users/templates/users/user_detail.html:129
+msgid "Next"
+msgstr "Następna"
+
+#: apps/posts/templates/posts/post_main.html:94
 #: apps/users/templates/users/user_detail.html:64
 #: apps/users/templates/users/user_detail.html:152
 msgid "Unfollow"
 msgstr "Odobserwuj"
 
 #: apps/posts/urls.py:8
-#| msgid "user/<str:slug>/"
 msgid "post/<str:slug>/"
 msgstr "post/<str:slug>/"
 
@@ -157,12 +164,10 @@ msgid "post/create/"
 msgstr "post/utwórz"
 
 #: apps/posts/urls.py:10
-#| msgid "post/update/<int:pk>/"
 msgid "post/update/<str:slug>/"
 msgstr "post/edytuj/<str:slug>/"
 
 #: apps/posts/urls.py:11
-#| msgid "post/delete/<int:pk>/"
 msgid "post/delete/<str:slug>/"
 msgstr "post/usuń/<str:slug>/"
 
@@ -176,12 +181,10 @@ msgstr "Obserwatorzy"
 
 #: apps/users/templates/users/followers_list.html:17
 #: apps/users/templates/users/following_list.html:17
-#| msgid "Profile"
 msgid "View Profile"
 msgstr "Zobacz Profil"
 
 #: apps/users/templates/users/followers_list.html:24
-#| msgid "This user has no posts yet."
 msgid "This user has no followers yet."
 msgstr "Ten użytkownik nie opublikował jeszcze postów."
 
@@ -190,36 +193,24 @@ msgid "Users followed by"
 msgstr "Użytkownicy obserwowani przez"
 
 #: apps/users/templates/users/following_list.html:24
-#| msgid "This user has no posts yet."
 msgid "This user is not following anyone yet."
 msgstr "Ten użytkownik nie obserwuje jeszcze nikogo."
 
 #: apps/users/templates/users/user_detail.html:27
-#| msgid "No posts available."
 msgid "No image avaible"
 msgstr "Brak zdjęć"
 
 #: apps/users/templates/users/user_detail.html:35
-#| msgid "No posts available."
 msgid "No bio available."
 msgstr "Brak bio"
 
 #: apps/users/templates/users/user_detail.html:55
-#| msgid "Profile"
 msgid "Edit Profile"
 msgstr "Edytuj Profil"
 
 #: apps/users/templates/users/user_detail.html:81
 msgid "Posts by"
 msgstr "Opublikowane przez"
-
-#: apps/users/templates/users/user_detail.html:107
-msgid "Previous"
-msgstr "Poprzednia"
-
-#: apps/users/templates/users/user_detail.html:129
-msgid "Next"
-msgstr "Następna"
 
 #: apps/users/templates/users/user_detail.html:142
 msgid "This user has no posts yet."
@@ -246,61 +237,58 @@ msgid "unfollow/<int:user_id>/"
 msgstr "odobserwuj/<int:user_id>/"
 
 #: apps/users/urls.py:12
-#| msgid "user/<str:slug>/"
 msgid "user/<slug:slug>/followers/"
 msgstr "użytkownik/<str:slug>/obserwatorzy/"
 
 #: apps/users/urls.py:13
-#| msgid "user/<str:slug>/"
 msgid "user/<slug:slug>/following/"
 msgstr "użytkownik/<str:slug>/obserwuje"
 
-#: apps/users/views.py:55 apps/users/views.py:72
-msgid "success"
-msgstr "sukcess"
-
-#: apps/users/views.py:57
+#: apps/users/views.py:56
 msgid "Now following"
 msgstr "Teraz obserwujesz"
 
-#: apps/users/views.py:61
+#: apps/users/views.py:60
 msgid "Already following"
 msgstr "Już obserwujesz"
 
-#: apps/users/views.py:74
-#| msgid "Password successfully set."
+#: apps/users/views.py:73
 msgid "Unfollowed successfully"
 msgstr "Odobserwowano"
 
-#: apps/users/views.py:78
+#: apps/users/views.py:77
 msgid "You are not following this user"
 msgstr "Nie obserwujesz tego użytkownika"
 
-#: blog/urls.py:26
+#: blog/urls.py:27
 msgid "accounts/"
 msgstr "konta/"
 
-#: blog/urls.py:27
+#: blog/urls.py:28
 msgid "users/"
 msgstr "użytkownicy/"
 
 #: blog/urls.py:29
+msgid "set_language/"
+msgstr ""
+
+#: blog/urls.py:31
 msgid "accounts/signup/"
 msgstr "konta/zarejestruj/"
 
-#: blog/urls.py:30
+#: blog/urls.py:32
 msgid "accounts/login/"
 msgstr "konta/zaloguj/"
 
-#: blog/urls.py:31
+#: blog/urls.py:33
 msgid "accounts/logout/"
 msgstr "konta/wyloguj/"
 
-#: blog/urls.py:32
+#: blog/urls.py:34
 msgid "accounts/password/change/"
 msgstr "konta/hasło/zmień"
 
-#: blog/urls.py:33
+#: blog/urls.py:35
 msgid "accounts/password/reset/"
 msgstr "konta/hasło/reset"
 
@@ -1012,6 +1000,10 @@ msgstr "Zaloguj"
 msgid "Register"
 msgstr "Zarejestruj"
 
+#: templates/header.html:19
+msgid "Language"
+msgstr "Język"
+
 #: templates/mfa/authenticate.html:13
 msgid ""
 "Your account is protected by two-factor authentication. Please enter an "
@@ -1446,6 +1438,9 @@ msgstr "Bieżąca"
 #: templates/usersessions/usersession_list.html:60
 msgid "Sign Out Other Sessions"
 msgstr "Wyloguj inne sesje"
+
+#~ msgid "success"
+#~ msgstr "sukcess"
 
 #~ msgid "post/<int:pk>/"
 #~ msgstr "post/<int:pk>/"
