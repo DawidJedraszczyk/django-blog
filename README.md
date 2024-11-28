@@ -12,6 +12,7 @@ EMAIL_HOST_PASSWORD = 'ftro gtmu jppt lcao'
 ````
 python manage.py migrate
 python manage.py populate_data
+python manage.py runserver
 ````
 It will prepare database and printout the credentials for custom user.
 
