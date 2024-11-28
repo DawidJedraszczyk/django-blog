@@ -15,7 +15,7 @@ class Command(BaseCommand):
         faker = Faker()
         num_users = 100
         num_posts_per_user = random.randint(1, 5)
-        profile_images_dir = "media/profile_images/"  # Path to your example images
+        profile_images_dir = "examples/profile_images/"  # Path to your example images
         profile_images = [os.path.join(profile_images_dir, f) for f in os.listdir(profile_images_dir)]
 
         # Step 1: Create Users
