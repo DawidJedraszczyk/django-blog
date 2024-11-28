@@ -9,7 +9,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey('users.BlogUser', on_delete=models.CASCADE, related_name="posts")
     updated_at = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(unique=True, blank=True, db_index=True)
+    slug = models.SlugField(unique=True, blank=True, db_index=True, max_length=200)
 
     def __str__(self):
         return self.title

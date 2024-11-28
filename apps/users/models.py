@@ -9,7 +9,7 @@ from django.db.models import Q, Count
 class BlogUser(AbstractUser):
     bio = models.TextField(blank=True, max_length=100, null=True, verbose_name=_("Bio"))
     image = models.ImageField(upload_to='profile_images/', blank=True, null=True, verbose_name=_("Image"))
-    slug = models.SlugField(unique=True, blank=True, db_index=True)
+    slug = models.SlugField(unique=True, blank=True, db_index=True, max_length=200)
 
     def __str__(self):
         return self.username
