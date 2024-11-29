@@ -9,12 +9,19 @@ EMAIL_HOST_PASSWORD = 'ftro gtmu jppt lcao'
 ```
 
 ## Running application
-````
+```
 python manage.py migrate
 python manage.py populate_data
 python manage.py runserver
-````
+```
 It will prepare database and printout the credentials for custom user.
+
+OR
+
+```
+docker compose build
+docker compose up
+```
 
 # Blog 
 Thats an app, where You can add any content that You want.
